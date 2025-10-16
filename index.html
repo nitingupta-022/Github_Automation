@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub CI/CD Explained</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #24292e;
+            border-bottom: 2px solid #eaecef;
+            padding-bottom: 10px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>How a GitHub CI/CD Pipeline Works 🚀</h1>
+        <p>
+            CI/CD stands for <strong>Continuous Integration</strong> and <strong>Continuous Deployment/Delivery</strong>. It's a practice that automates the software development lifecycle. GitHub uses a feature called <strong>GitHub Actions</strong> to implement this.
+        </p>
+
+        <h2>The Workflow</h2>
+        <p>
+            The process is defined in a YAML file (e.g., <code>.github/workflows/main.yml</code>) in your repository. Here's a visual breakdown of a typical pipeline:
+        </p>
+
+        <div class="mermaid" style="text-align: center;">
+            graph TD;
+                A[Developer pushes code to GitHub] --> B{GitHub Action Triggered};
+                B --> C[Build: Code is compiled];
+                C --> D[Test: Automated tests run];
+                D --> E{Tests Pass?};
+                E -- Yes --> F[Deploy: Application is sent to a server];
+                E -- No --> G[Fail: Notify developer of errors];
+        </div>
+
+        <h2>Step-by-Step Explanation</h2>
+        <ol>
+            <li><strong>Code Push:</strong> A developer commits and pushes new code to a repository branch (e.g., `main`).</li>
+            <li><strong>Trigger:</strong> GitHub Actions detects this push and automatically starts the pre-defined workflow.</li>
+            <li><strong>Build:</strong> The code is compiled or packaged in a clean, consistent environment.</li>
+            <li><strong>Test:</strong> Automated tests (like unit tests or integration tests) run to check for bugs or regressions.</li>
+            <li><strong>Deploy:</strong> If all tests pass, the new version of the application is automatically deployed to a server, making it live for users.</li>
+        </ol>
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+
+</body>
+</html>
